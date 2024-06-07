@@ -1,5 +1,14 @@
 #pragma once
 #include "BaseGame.h"
+#include "Cult.h"
+#include "Customer.h"
+#include "potion.h"
+#include "vector"
+
+class Ingredient;
+class Cauldron;
+class UI;
+class EventManager;
 class Game : public BaseGame
 {
 public:
@@ -27,4 +36,16 @@ private:
 	void Initialize();
 	void Cleanup( );
 	void ClearBackground( ) const;
+	void Reset();
+	void PrepIngredients();
+	void PrepEvents();
+	Potion* m_Potion;
+	Cult* m_Cult;
+	Customer* m_Customer;
+	std::vector<Ingredient*> m_AllIngredients;
+	Ingredient* m_Selected_Ingredient;
+	Cauldron* m_Cauldron;
+	UI* m_Ui;
+	EventManager* m_EventManager;
+	Event* m_CurrentEvent;
 };
